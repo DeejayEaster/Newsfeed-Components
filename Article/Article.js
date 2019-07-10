@@ -162,8 +162,8 @@ const data = [
 
 */
 const componenet = document.querySelector(".articles");
-data.forEach(data => {
-  componenet.appendChild(createPanel(data));
+data.forEach(thing => {
+  componenet.appendChild(createPanel(thing));
 });
 
 // elm create
