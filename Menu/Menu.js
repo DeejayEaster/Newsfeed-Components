@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
 /* 
@@ -20,6 +20,8 @@ let menuItems = [
   </div>
 
   Pass the function an array as it's only argument.
+  
+
 
   Step 2: Iterate over the array creating a list item <li> element for each item in the array. 
   Add those items to the <ul>
@@ -33,3 +35,37 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+const header = document.querySelector(".header");
+
+header.appendChild(createNav(menuItems));
+
+// elements create
+function createNav(arr) {
+  const menu = document.createElement("div");
+  const nav = document.createElement("ul");
+  // const navItems = document.createElement("li");
+  const menuButton = document.querySelector(".menu-button");
+
+  // Events
+  menuButton.addEventListener("click", event => {
+    menu.classList.toggle("menu--open");
+  });
+
+  // elm structure
+  menu.appendChild(nav);
+
+  // content
+  arr.forEach(item => {
+    const navItems = document.createElement("li");
+    nav.appendChild(navItems);
+
+    navItems.textContent = item;
+  });
+
+  // classes
+  menu.classList.add("menu");
+  menuButton.classList.add("menu-button");
+
+  return menu;
+}
